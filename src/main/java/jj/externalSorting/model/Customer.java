@@ -1,11 +1,12 @@
 package jj.externalSorting.model;
 
-public class Customer{
+public class Customer {
 
     private String firstName;
     private String lastName;
 
     public Customer() {
+        //this is a default constructor
     }
 
     public String getFirstName() {
