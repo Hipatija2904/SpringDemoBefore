@@ -12,16 +12,21 @@ public class CustomerServiceImplementation implements CustomerService {
     /* hard coded reference to customer service up here |^ */
     private CustomerRepository customerRepository;
 
+    public CustomerServiceImplementation() {
+    }
+
     public CustomerServiceImplementation(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
     }
 
-    public void setCustomerRepository(CustomerRepository customerRepository) {
-        this.customerRepository = customerRepository;
-    }
+
 
     @Override
     public List<Customer> findAll(){
         return customerRepository.findAll();
+    }
+
+    public void setCustomerRepository(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
     }
 }

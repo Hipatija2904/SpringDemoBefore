@@ -4,22 +4,23 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean name = "beanCustomerRepository"
+    <bean name = "customerRepository"
     class="jj.externalSorting.repository.HibernateCustomerRepositoryImplementation"/>
     <bean name="beanCustomerService"
-    class = "jj.externalSorting.service.CustomerServiceImplementation">
-        <constructor-arg index="0" ref="beanCustomerRepository"/>
-       <!--
-        in setter injection the line above was  <property name="customerRepository" ref="beanCustomerRepository"></property>
-        - name is no longer applicable
-        - in customerServiceImplementation we had the default no-args constructor
-            but now for constructor injection we have added
-            public CustomerServiceImplementation(CustomerRepository customerRepository) {
-        this.customerRepository = customerRepository;
-        and that plus this constructor arg is all it took to have constructor injection
-    }
-            +++ if we wanted to combine wiht setter injection, we would just ad an element <property>
-        -->
+    class = "jj.externalSorting.service.CustomerServiceImplementation" autowire="byName">
+
+        <!--
+
+                autowire byName did not work at first because I had a been named beanCustomerRepository
+                and it was looking for that in a setter
+                for example if I made that setter to be setFoo, then instead of customer repository I would have to
+                 have the bean name  "foo"
+
+         -->
+        <!--
+ a
+
+ -->
     </bean>
 
 
