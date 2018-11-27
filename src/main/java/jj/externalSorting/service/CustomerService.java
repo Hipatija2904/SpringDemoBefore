@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface CustomerService {
     List<Customer> findAll();
-    /* autowired by name, constructor injection */
+    /* autowired by name, constructorinjection */
 }
