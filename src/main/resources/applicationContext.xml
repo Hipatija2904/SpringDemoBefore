@@ -8,7 +8,18 @@
     class="jj.externalSorting.repository.HibernateCustomerRepositoryImplementation"/>
     <bean name="beanCustomerService"
     class = "jj.externalSorting.service.CustomerServiceImplementation">
-        <property name="customerRepository" ref="beanCustomerRepository"></property>
+        <constructor-arg index="0" ref="beanCustomerRepository"/>
+       <!--
+        in setter injection the line above was  <property name="customerRepository" ref="beanCustomerRepository"></property>
+        - name is no longer applicable
+        - in customerServiceImplementation we had the default no-args constructor
+            but now for constructor injection we have added
+            public CustomerServiceImplementation(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+        and that plus this constructor arg is all it took to have constructor injection
+    }
+            +++ if we wanted to combine wiht setter injection, we would just ad an element <property>
+        -->
     </bean>
 
 
