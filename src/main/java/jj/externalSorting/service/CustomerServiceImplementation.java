@@ -18,6 +18,6 @@ public class CustomerServiceImplementation implements CustomerService {
 
     @Override
     public List<Customer> findAll(){
-        return customerRepository.findAll(); /*here we have a hard coded reference to our customer repository this is where spring starts to come in, so we don't have these pieces hardcoded inside our application*/
+        return customerRepository.findAll();
     }
 }

@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface CustomerService {
     List<Customer> findAll();
-    /* lalalalal masSLMA;LDAL;DL;AS */
+    /* setter injection */
 }
